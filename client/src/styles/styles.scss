@@ -1,0 +1,38 @@
+@import "./settings/index";
+@import "./components/index";
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+}
+
+.full-viewport {
+	width: 100vw;
+	height: 100vh;
+}
+
+@mixin backdrop-effect($amount: 5px) {
+	backdrop-filter: blur($amount);
+}
+
+.bg-backdrop {
+	@include backdrop-effect(5px);
+}
+
+.blueprint-grid {
+	position: fixed;
+	background: #58a;
+	background-image: linear-gradient(white 2px, transparent 0),
+		linear-gradient(90deg, white 2px, transparent 0),
+		linear-gradient(hsla(0, 0%, 100%, 0.3) 1px, transparent 0),
+		linear-gradient(90deg, hsla(0, 0%, 100%, 0.3) 1px, transparent 0);
+	background-size: 75px 75px, 75px 75px, 15px 15px, 15px 15px;
+}
+
+.neon-effect {
+	box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #bc13fe, 0 0 0.8rem #bc13fe,
+		0 0 2.8rem #bc13fe, inset 0 0 1.3rem #bc13fe;
+}

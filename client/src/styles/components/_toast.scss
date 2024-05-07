@@ -1,0 +1,33 @@
+:root {
+	--toast-transition-delay: 500ms;
+}
+
+@keyframes slideInLeft {
+	from {
+		transform: translateX(100%);
+	}
+	to {
+		transform: translateX(0);
+	}
+}
+
+.toast-enter {
+	animation: slideInLeft var(--toast-transition-delay) ease-in-out forwards;
+}
+
+@keyframes slideOutRight {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(100%);
+	}
+}
+
+.toast-exit {
+	animation: slideOutRight var(--toast-transition-delay) ease-in-out forwards;
+}
+
+.toast-move {
+	transition: all 200ms ease-in-out;
+}
