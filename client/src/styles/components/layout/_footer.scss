@@ -1,0 +1,20 @@
+.footer {
+	$page-margin: map-get(
+		$map: $page,
+		$key: margin,
+	);
+	$border-padding: map-get(
+		$map: $page,
+		$key: padding,
+	);
+
+	display: flex;
+	position: sticky;
+	bottom: 0;
+	padding: $border-padding;
+	margin: 0 $page-margin $page-margin $page-margin;
+	font-size: 0.8rem;
+	border-radius: $border-padding;
+	background-color: rgba(0, 0, 0, 0.5);
+	backdrop-filter: blur($overlay-backdrop-filter);
+}

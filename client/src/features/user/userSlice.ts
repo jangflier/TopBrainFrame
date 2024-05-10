@@ -41,4 +41,3 @@ export const userInfoSlice = createSlice({
 });
 
 export const { setUserInfo, clearUserInfo } = userInfoSlice.actions;
-export default userInfoSlice.reducer;

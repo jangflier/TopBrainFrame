@@ -16,7 +16,7 @@ export const authMenu = {
 export const homeMenu = {
 	dashboard: {
 		id: "dashboard",
-		title: "dashboard",
+		title: "Dashboard",
 		path: "/dashboard",
 		icon: "",
 	},

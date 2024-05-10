@@ -3,7 +3,6 @@
 	"version": "1.0.0",
 	"description": "",
 	"main": "dist/app.js",
-	"proxy": "localhost:3000",
 	"scripts": {
 		"build": "npx tsc",
 		"start": "cross-env NODE_ENV=production node dist/app.js",

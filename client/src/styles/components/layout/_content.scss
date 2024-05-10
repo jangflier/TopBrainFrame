@@ -1,0 +1,4 @@
+.content {
+	flex-grow: 1;
+	margin: map-get($map: $page, $key: margin);
+}

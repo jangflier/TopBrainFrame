@@ -5,8 +5,16 @@ import { useSignoutMutation } from "../features/auth/authApi";
 import { useToast } from "../features/notification/useToast";
 import { RootState } from "../store";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
-import { authMenu } from "../menu";
+import { authMenu, homeMenu } from "../menu";
 import { clearUserInfo } from "../features/user/userSlice";
+import {
+	Card,
+	CardBody,
+	CardFooter,
+	CardFooterLeft,
+	CardFooterRight,
+	CardHeader,
+} from "../components/elements/Card/Card";
 
 const Dashboard: React.FC = () => {
 	const navigate = useNavigate();
@@ -47,17 +55,24 @@ const Dashboard: React.FC = () => {
 	};
 
 	return (
-		<Page>
-			<div>
-				<h1>Wellcome to my project {userInfo.firstName}!</h1>
-				<div>Email : {userInfo.email}</div>
-				<div>
-					Created Date : {userInfo.createdAt && new Date(userInfo.createdAt).toLocaleDateString()}
-				</div>
-			</div>
-			<Button className='bg-secondary' onClick={handleSignout}>
-				Sign Out
-			</Button>
+		<Page title={homeMenu.dashboard.title}>
+			<Card>
+				<CardHeader>Wellcome to my project {userInfo.firstName}!</CardHeader>
+				<CardBody>
+					<div>Email : {userInfo.email}</div>
+					<div>
+						Created Date : {userInfo.createdAt && new Date(userInfo.createdAt).toLocaleDateString()}
+					</div>
+				</CardBody>
+				<CardFooter>
+					<CardFooterLeft></CardFooterLeft>
+					<CardFooterRight>
+						<Button className='bg-secondary' onClick={handleSignout}>
+							Sign Out
+						</Button>
+					</CardFooterRight>
+				</CardFooter>
+			</Card>
 		</Page>
 	);
 };
