@@ -3,7 +3,6 @@ import { RootState } from "../store";
 import publicRoutes from "./public";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { useEffect } from "react";
-import { useVerifySessionAndSendUserInfoMutation } from "../features/auth/authApi";
 import { setUserInfo } from "../features/user/userSlice";
 import { authMenu } from "../menu";
 import { Aside } from "../components/layout/Aside";
@@ -11,11 +10,12 @@ import { PageWrapper } from "../components/layout/PageWrapper";
 import { ContentRoutes } from "./routesComponent/ContentRoutes";
 import { FooterRoutes } from "./routesComponent/FooterRoutes";
 import { HeaderRoutes } from "./routesComponent/HeaderRoutes";
+import { useUserInfoMutation } from "../features/user/userApi";
 
 const AppRoutes = () => {
 	const userInfo = useAppSelector((state: RootState) => state.userInfo);
 	const dispatch = useAppDispatch();
-	const [reqVerifuSession, { isLoading }] = useVerifySessionAndSendUserInfoMutation();
+	const [reqUserInfo, { isLoading }] = useUserInfoMutation();
 	const navigate = useNavigate();
 
 	useEffect(() => {
@@ -23,7 +23,7 @@ const AppRoutes = () => {
 	}, [userInfo]);
 
 	useEffect(() => {
-		reqVerifuSession()
+		reqUserInfo()
 			.unwrap()
 			.then((resData) => {
 				if (resData.ok && resData.data.id) {
@@ -34,7 +34,7 @@ const AppRoutes = () => {
 				navigate(authMenu.signin.path);
 			});
 		// eslint-disable-next-line
-	}, [reqVerifuSession, dispatch]);
+	}, [reqUserInfo, dispatch]);
 
 	if (isLoading) {
 		return <></>;

@@ -1,3 +1,7 @@
+export interface Menu {
+	[key: string]: MenuItem;
+}
+
 export interface MenuItem {
 	id: string;
 	title: string;

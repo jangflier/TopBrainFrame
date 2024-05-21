@@ -4,7 +4,6 @@ import { ExpressRouteHandler } from "../interfaces/expressTypes";
 import { User } from "../models/user";
 import textColor from "../util/consoleTextColor";
 import { sendError, sendSuccess } from "../util/responseHelpers";
-import { UserNotFoundError } from "../errors/AuthenticationErrors";
 
 export const signin: ExpressRouteHandler = async (req, res) => {
 	interface ReqSigninData {
@@ -91,26 +90,4 @@ export const signout: ExpressRouteHandler = (req, res) => {
 		res.clearCookie("connect.sid", { path: "/" });
 		sendSuccess(res, "Sign Out Successful");
 	});
-};
-
-export const verifySessionAndSendUserInfo: ExpressRouteHandler = async (req, res) => {
-	try {
-		const userInfo = await User.findByPk(req.session.userId);
-		if (!userInfo) throw new UserNotFoundError();
-
-		sendSuccess(res, "Session verified", userInfo);
-	} catch (error) {
-		if (error instanceof UserNotFoundError) {
-			return req.session.destroy((sessionError) => {
-				if (sessionError) {
-					console.error(sessionError);
-					sendError(res, 500, "Failed to destroy session.");
-				}
-				res.clearCookie("connect.sid", { path: "/" });
-				sendError(res, 404, "User Not Found");
-			});
-		}
-		console.error(error);
-		sendError(res, 500, "Internal Server Error");
-	}
 };

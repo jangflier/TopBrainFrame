@@ -110,29 +110,29 @@ const SignUp: React.FC = () => {
 							<div className='d-flex flex-column flex-md-row gap-3'>
 								<Input
 									type='text'
-									placeholder='First Name'
+									label='First Name'
 									{...getValidationObj(validationObj?.[FIRST_NAME])}
 								/>
 								<Input
 									type='text'
-									placeholder='Last Name'
+									label='Last Name'
 									{...getValidationObj(validationObj?.[LAST_NAME])}
 								/>
 							</div>
 							<Input
 								ref={emailRef}
 								type='email'
-								placeholder='Email'
+								label='Email'
 								{...getValidationObj(validationObj?.[EMAIL])}
 							/>
 							<Input
 								type='password'
-								placeholder='Password'
+								label='Password'
 								{...getValidationObj(validationObj?.[PASSWORD])}
 							/>
 							<Input
 								type='password'
-								placeholder='Confirm Password'
+								label='Confirm Password'
 								{...getValidationObj(validationObj?.[CONFIRM_PASSWORD])}
 							/>
 							<div className='mt-3 d-flex justify-content-center'>

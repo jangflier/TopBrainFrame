@@ -15,6 +15,6 @@
 	margin: 0 $page-margin $page-margin $page-margin;
 	font-size: 0.8rem;
 	border-radius: $border-padding;
-	background-color: rgba(0, 0, 0, 0.5);
 	backdrop-filter: blur($overlay-backdrop-filter);
+	border: 1px solid black;
 }

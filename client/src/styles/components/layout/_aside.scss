@@ -5,18 +5,49 @@
 	height: 100%;
 	top: 0;
 	bottom: 0;
-	background-color: rgba(0, 0, 0, 0.5);
 	overflow-y: auto;
 	padding: $border-radius;
 	border-top-right-radius: $border-radius;
 	border-bottom-right-radius: $border-radius;
+	border: 1px solid black;
 
 	&:hover,
 	&.open {
 		width: map-get($aside, width);
 	}
 
-	// &:not(.open):hover {
+	&-body {
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+		flex-grow: 1;
+		overflow: auto;
 
-	// }
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+		&::-webkit-scrollbar {
+			display: none;
+		}
+	}
+
+	&-nav {
+		ul {
+			padding: 0;
+			list-style: none;
+
+			li {
+				border-radius: 1rem;
+				padding: 0.5rem 1rem;
+				cursor: pointer;
+				transition: background-color 300ms ease-in-out;
+
+				&:not(:last-child) {
+					margin-bottom: 0.5rem;
+				}
+				&:hover {
+					background-color: map-get($map: $aside, $key: hover-bg-color);
+					color: aliceblue;
+				}
+			}
+		}
+	}
 }

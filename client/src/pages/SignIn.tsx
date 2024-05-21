@@ -82,12 +82,12 @@ const SignIn = () => {
 						<div className='d-flex flex-column gap-3'>
 							<Input
 								type='email'
-								placeholder='Email'
+								label='Email'
 								{...getValidationObj(validationObj?.[EMAIL], false)}
 							/>
 							<Input
 								type='password'
-								placeholder='Password'
+								label='Password'
 								{...getValidationObj(validationObj?.[PASSWORD], false)}
 							/>
 							<div className='mt-3 d-flex justify-content-center'>

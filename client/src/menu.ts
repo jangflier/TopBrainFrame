@@ -1,4 +1,6 @@
-export const authMenu = {
+import { Menu } from "./models/globalTypes";
+
+export const authMenu: Menu = {
 	signin: {
 		id: "signin",
 		title: "Sign In",
@@ -13,11 +15,23 @@ export const authMenu = {
 	},
 };
 
-export const homeMenu = {
+export const homeMenu: Menu = {
 	dashboard: {
 		id: "dashboard",
 		title: "Dashboard",
 		path: "/dashboard",
+		icon: "",
+	},
+	calender: {
+		id: "calender",
+		title: "Calender",
+		path: "/calender",
+		icon: "",
+	},
+	profile: {
+		id: "profile",
+		title: "Profile",
+		path: "/profile",
 		icon: "",
 	},
 };

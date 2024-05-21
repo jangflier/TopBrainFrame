@@ -13,6 +13,6 @@
 	padding: map-get($map: $page, $key: padding);
 	margin: $page-margin $page-margin 0 $page-margin;
 	border-radius: $border-padding;
-	background-color: rgba(0, 0, 0, 0.5);
 	backdrop-filter: blur($overlay-backdrop-filter);
+	border: 1px solid black;
 }

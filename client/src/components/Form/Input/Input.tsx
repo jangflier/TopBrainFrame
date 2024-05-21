@@ -13,6 +13,7 @@ const Input: React.ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
 		validFeedback = null,
 		isTooltip = false,
 		showValidationFeedback = false,
+		label,
 		...props
 	},
 	ref,
@@ -25,6 +26,7 @@ const Input: React.ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
 
 	return (
 		<div>
+			{label && <div className='form-label'>{label}</div>}
 			<input
 				ref={ref}
 				className={`form-control px-3 py-1 border-1 border-gray rounded-start-pill rounded-end-pill ${

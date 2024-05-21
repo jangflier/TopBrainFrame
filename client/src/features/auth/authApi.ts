@@ -25,18 +25,7 @@ export const authApi = createApi({
 				method: "POST",
 			}),
 		}),
-		verifySessionAndSendUserInfo: builder.mutation<SigninResData, void>({
-			query: () => ({
-				url: "verifySessionAndSendUserInfo",
-				method: "GET",
-			}),
-		}),
 	}),
 });
 
-export const {
-	useSigninMutation,
-	useSignupMutation,
-	useSignoutMutation,
-	useVerifySessionAndSendUserInfoMutation,
-} = authApi;
+export const { useSigninMutation, useSignupMutation, useSignoutMutation } = authApi;

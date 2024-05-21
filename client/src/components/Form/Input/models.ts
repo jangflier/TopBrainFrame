@@ -5,8 +5,9 @@ import { ValidationItems, ValidationProps } from "../../../features/validation/v
 export interface CustomInputProps extends ValidationProps {
 	isValid: boolean;
 	isValidMessage: boolean;
-	value: ValidationItems["value"];
 	showValidationFeedback: boolean;
+	value: ValidationItems["value"];
+	label: string;
 }
 
 export type InputProps = Partial<CustomInputProps> &
