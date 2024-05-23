@@ -39,25 +39,38 @@ const AppRoutes = () => {
 	if (isLoading) {
 		return <></>;
 	}
-	if (!userInfo.id) {
-		return (
-			<Routes>
-				{publicRoutes.map((route, index) => (
-					<Route key={index} path={route.path} element={route.element} />
-				))}
-			</Routes>
-		);
-	}
 	return (
 		<div className='app'>
-			<Routes>
-				<Route path='*' element={<Aside />} />
-			</Routes>
-			<PageWrapper>
-				<HeaderRoutes />
-				<ContentRoutes />
-				<FooterRoutes />
-			</PageWrapper>
+			<div
+				className={
+					userInfo.isSignedIn ? "background auth-background" : "background auth-background show"
+				}
+			/>
+			<div
+				className={
+					userInfo.isSignedIn ? "background home-background show" : "background home-background"
+				}
+			/>
+			{userInfo.isSignedIn ? (
+				<>
+					<Routes>
+						<Route path='*' element={<Aside />} />
+					</Routes>
+					<PageWrapper>
+						<HeaderRoutes />
+						<ContentRoutes />
+						<FooterRoutes />
+					</PageWrapper>
+				</>
+			) : (
+				<>
+					<Routes>
+						{publicRoutes.map((route, index) => (
+							<Route key={index} path={route.path} element={route.element} />
+						))}
+					</Routes>
+				</>
+			)}
 		</div>
 	);
 };

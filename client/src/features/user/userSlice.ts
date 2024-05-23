@@ -1,6 +1,7 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 export interface UserInfoState {
+	isSignedIn: boolean;
 	id: string;
 	firstName: string;
 	lastName: string;
@@ -10,6 +11,7 @@ export interface UserInfoState {
 }
 
 const userInfoInitState: UserInfoState = {
+	isSignedIn: false,
 	id: "",
 	firstName: "",
 	lastName: "",
@@ -22,6 +24,7 @@ export const userInfoSlice = createSlice({
 	reducers: {
 		setUserInfo: (state, action: PayloadAction<UserInfoState>) => {
 			const { id, email, firstName, lastName, createdAt, updatedAt } = action.payload;
+			state.isSignedIn = true;
 			state.id = id;
 			state.email = email;
 			state.firstName = firstName;
@@ -30,6 +33,7 @@ export const userInfoSlice = createSlice({
 			if (updatedAt) state.updatedAt = updatedAt;
 		},
 		clearUserInfo: (state) => {
+			state.isSignedIn = false;
 			state.id = "";
 			state.firstName = "";
 			state.lastName = "";

@@ -21,14 +21,26 @@ body {
 	@include backdrop-effect(5px);
 }
 
-.blueprint-grid {
+// dark mode background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+.background {
 	position: fixed;
-	background: #58a;
-	background-image: linear-gradient(white 2px, transparent 0),
-		linear-gradient(90deg, white 2px, transparent 0),
-		linear-gradient(hsla(0, 0%, 100%, 0.3) 1px, transparent 0),
-		linear-gradient(90deg, hsla(0, 0%, 100%, 0.3) 1px, transparent 0);
-	background-size: 75px 75px, 75px 75px, 15px 15px, 15px 15px;
+	width: 100vw;
+	height: 100vh;
+	transition: opacity 3000ms ease-in-out;
+	opacity: 0;
+	z-index: -1;
+
+	&.auth-background {
+		background: linear-gradient(-30deg, #96fbc4 0%, #f9f586 100%);
+	}
+
+	&.home-background {
+		background: linear-gradient(30deg, #85ffbd 0%, #fffb7d 100%);
+	}
+
+	&.show {
+		opacity: 1;
+	}
 }
 
 .neon-effect {
