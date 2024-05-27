@@ -3,8 +3,6 @@ import { authMenu } from "../menu";
 import SignIn from "../pages/SignIn";
 import SignUp from "../pages/SignUp";
 
-let publicRoutes: Array<RouteObject> = [];
-
 const authRoutes: Array<RouteObject> = [
 	{
 		path: authMenu.signin.path,
@@ -17,5 +15,5 @@ const authRoutes: Array<RouteObject> = [
 	{ path: "*", element: <Navigate to={authMenu.signin.path} /> },
 ];
 
-publicRoutes = [...authRoutes];
+const publicRoutes: Array<RouteObject> = [...authRoutes];
 export default publicRoutes;

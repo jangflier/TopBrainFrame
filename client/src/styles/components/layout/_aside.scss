@@ -9,7 +9,6 @@
 	padding: $border-radius;
 	border-top-right-radius: $border-radius;
 	border-bottom-right-radius: $border-radius;
-	border: 1px solid black;
 
 	&:hover,
 	&.open {
@@ -40,6 +39,9 @@
 				cursor: pointer;
 				transition: background-color 300ms ease-in-out;
 
+				&.active {
+					background-color: darkslategrey;
+				}
 				&:not(:last-child) {
 					margin-bottom: 0.5rem;
 				}

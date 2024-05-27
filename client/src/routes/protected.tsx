@@ -5,6 +5,7 @@ import { Footer } from "../components/Common/Footer";
 import { Header } from "../components/Common/Header";
 
 const Dashboard = lazy(() => import("../pages/Dashboard"));
+const Calendar = lazy(() => import("../pages/Calendar"));
 const Profile = lazy(() => import("../pages/Profile"));
 
 interface ProtectedRoutes {
@@ -30,6 +31,10 @@ const homeRoutes: Array<RouteObject> = [
 	{
 		path: homeMenu.dashboard.path,
 		element: <Dashboard />,
+	},
+	{
+		path: homeMenu.calendar.path,
+		element: <Calendar />,
 	},
 	{
 		path: homeMenu.profile.path,

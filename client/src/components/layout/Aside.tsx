@@ -10,7 +10,7 @@ export const Aside: FC = () => {
 	const isAsideOpen = useAppSelector((state: RootState) => state.theme.isAsideOpen);
 
 	return (
-		<aside className={`aside ${isAsideOpen ? "open" : ""}`}>
+		<aside className={`aside shadow-lg ${isAsideOpen ? "open" : ""}`}>
 			<div className='aside-header'>
 				<Button>mobile</Button>
 				<Button>minimize</Button>

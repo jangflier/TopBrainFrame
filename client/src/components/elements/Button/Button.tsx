@@ -2,9 +2,9 @@ import { FC, ButtonHTMLAttributes } from "react";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
-const Button: FC<ButtonProps> = ({ children, className = "", ...props }) => {
+const Button: FC<ButtonProps> = ({ children, type = "button", className = "", ...props }) => {
 	return (
-		<button className={`btn p-1 rounded-start-pill rounded-end-pill ${className}`} {...props}>
+		<button type={type} className={`btn p-1 ${className}`} {...props}>
 			{children}
 		</button>
 	);

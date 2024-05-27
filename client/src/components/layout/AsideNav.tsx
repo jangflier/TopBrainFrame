@@ -1,5 +1,5 @@
 import { FC, HTMLAttributes } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Menu } from "../../models/globalTypes";
 
 interface AsideNavProps extends HTMLAttributes<HTMLElement> {
@@ -7,6 +7,7 @@ interface AsideNavProps extends HTMLAttributes<HTMLElement> {
 }
 
 export const AsideNav: FC<AsideNavProps> = ({ menu }) => {
+	const location = useLocation();
 	const navigate = useNavigate();
 
 	return (
@@ -14,8 +15,12 @@ export const AsideNav: FC<AsideNavProps> = ({ menu }) => {
 			<ul>
 				{Object.keys(menu).map((key, index) => {
 					const menuItem = menu[key];
+
 					return (
-						<li key={`${key}-${index}`} onClick={() => navigate(menuItem.path)}>
+						<li
+							key={`${key}-${index}`}
+							className={location.pathname === menuItem.path ? "active" : ""}
+							onClick={() => navigate(menuItem.path)}>
 							{menuItem.title}
 						</li>
 					);

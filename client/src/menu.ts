@@ -22,10 +22,10 @@ export const homeMenu: Menu = {
 		path: "/dashboard",
 		icon: "",
 	},
-	calender: {
-		id: "calender",
-		title: "Calender",
-		path: "/calender",
+	calendar: {
+		id: "calendar",
+		title: "Calendar",
+		path: "/calendar",
 		icon: "",
 	},
 	profile: {

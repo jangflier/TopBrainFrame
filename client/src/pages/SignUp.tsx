@@ -102,7 +102,9 @@ const SignUp: React.FC = () => {
 		<CenteredPage title={authMenu.signup.title}>
 			<Card className='p-5 bg-backdrop border border-1'>
 				<CardHeader className='justify-content-center'>
-					<CardTitle tag='h3'>Sign Up</CardTitle>
+					<CardTitle tag='h1' className='fw-bold'>
+						Sign Up
+					</CardTitle>
 				</CardHeader>
 				<CardBody>
 					<form onSubmit={(event) => handleSubmit(event, handleSignup)}>

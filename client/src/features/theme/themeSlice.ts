@@ -2,25 +2,25 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 interface themeState {
 	isAsideOpen: boolean;
-	isDarkMode: boolean;
+	isDarkTheme: boolean;
 }
 
 const themeInitState: themeState = {
 	isAsideOpen: true,
-	isDarkMode: true,
+	isDarkTheme: false,
 };
 
 export const themeSlice = createSlice({
 	name: "theme",
 	initialState: themeInitState,
 	reducers: {
-		setAsideOpen: (state, action: PayloadAction<boolean>) => {
+		setIsAsideOpen: (state, action: PayloadAction<boolean>) => {
 			state.isAsideOpen = action.payload;
 		},
-		setDarkMode: (state, action: PayloadAction<boolean>) => {
-			state.isAsideOpen = action.payload;
+		setIsDarkTheme: (state, action: PayloadAction<boolean>) => {
+			state.isDarkTheme = action.payload;
 		},
 	},
 });
 
-export const { setAsideOpen, setDarkMode } = themeSlice.actions;
+export const { setIsAsideOpen, setIsDarkTheme } = themeSlice.actions;

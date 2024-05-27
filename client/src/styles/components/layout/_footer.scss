@@ -16,5 +16,5 @@
 	font-size: 0.8rem;
 	border-radius: $border-padding;
 	backdrop-filter: blur($overlay-backdrop-filter);
-	border: 1px solid black;
+	z-index: 1;
 }

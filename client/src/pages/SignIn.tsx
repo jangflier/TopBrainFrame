@@ -75,7 +75,9 @@ const SignIn = () => {
 		<CenteredPage title={authMenu.signin.title}>
 			<Card className='p-5 bg-backdrop border border-1'>
 				<CardHeader className='justify-content-center'>
-					<CardTitle tag='h3'>Sign In</CardTitle>
+					<CardTitle tag='h1' className='fw-bold'>
+						Sign In
+					</CardTitle>
 				</CardHeader>
 				<CardBody>
 					<form onSubmit={(event) => handleSubmit(event, handleSignin)}>

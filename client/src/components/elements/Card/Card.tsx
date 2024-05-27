@@ -96,7 +96,7 @@ export const CardFooter: FC<CardModel.CardFooterProps> = ({
 
 export const Card: FC<CardModel.CardProps> = ({ children, className = "", ...props }) => {
 	return (
-		<div className={`Card p-3 rounded-4 shadow ${className}`} {...props}>
+		<div className={`Card bg-white bg-opacity-50 p-3 rounded-4 shadow ${className}`} {...props}>
 			{children}
 		</div>
 	);

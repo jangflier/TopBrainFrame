@@ -19,10 +19,6 @@ const AppRoutes = () => {
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		console.log(userInfo);
-	}, [userInfo]);
-
-	useEffect(() => {
 		reqUserInfo()
 			.unwrap()
 			.then((resData) => {
@@ -33,25 +29,18 @@ const AppRoutes = () => {
 			.catch((error) => {
 				navigate(authMenu.signin.path);
 			});
-		// eslint-disable-next-line
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [reqUserInfo, dispatch]);
 
-	if (isLoading) {
-		return <></>;
-	}
+	useEffect(() => {
+		console.log(userInfo);
+	}, [userInfo]);
+
 	return (
 		<div className='app'>
-			<div
-				className={
-					userInfo.isSignedIn ? "background auth-background" : "background auth-background show"
-				}
-			/>
-			<div
-				className={
-					userInfo.isSignedIn ? "background home-background show" : "background home-background"
-				}
-			/>
-			{userInfo.isSignedIn ? (
+			{isLoading ? (
+				<></>
+			) : userInfo.isSignedIn ? (
 				<>
 					<Routes>
 						<Route path='*' element={<Aside />} />

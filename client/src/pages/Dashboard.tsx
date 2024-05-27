@@ -4,7 +4,7 @@ import { useAppSelector } from "../store/hooks";
 import { homeMenu } from "../menu";
 import { Card, CardBody, CardHeader } from "../components/elements/Card/Card";
 
-const Dashboard: React.FC = () => {
+const Dashboard = () => {
 	const userInfo = useAppSelector((state: RootState) => state.userInfo);
 
 	return (
