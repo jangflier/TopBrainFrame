@@ -12,7 +12,7 @@ export const getSystemTheme = () => {
 
 export const ThemeProvider: FC<themeTypeProps> = ({ children }) => {
 	const userInfo = useAppSelector((state: RootState) => state.userInfo);
-	const [storedTheme] = useLocalStorage("theme");
+	const [storedTheme, setStoredTheme] = useLocalStorage("theme");
 	const { theme, setTheme } = useTheme();
 
 	const handleThemeChange = useCallback(
@@ -33,6 +33,7 @@ export const ThemeProvider: FC<themeTypeProps> = ({ children }) => {
 			setTheme(storedTheme);
 		} else {
 			setTheme("system");
+			setStoredTheme("system");
 		}
 
 		matchDark.addEventListener("change", handleThemeChange);
