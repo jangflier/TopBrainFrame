@@ -2,7 +2,7 @@
 This project is a cloud-based project management application built with React, Express, and MySQL.
 
 
-## How to Run the Project
+## <span style="color: tomato;">How to Run the Project</span>
 Follow these steps to set up and run the project:
 
   ### *1. Install MySQL*
