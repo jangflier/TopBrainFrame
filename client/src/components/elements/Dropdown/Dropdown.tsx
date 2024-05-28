@@ -5,23 +5,48 @@ type DropdownCommonProps = HTMLAttributes<HTMLElement>;
 
 export interface DropdownProps extends DropdownCommonProps {
 	title: string;
+	menuPosition: string;
 }
 
 export interface DropdownItemProps extends DropdownCommonProps {}
 
-export const DropdownItem: FC<DropdownCommonProps> = ({ className = "", children, ...props }) => {
+export const DropdownItem: FC<DropdownItemProps> = ({ className = "", children, ...props }) => {
 	return (
-		<li className={`dropdown-item cursor-pointer ${className}`} {...props}>
-			{children}
+		<li>
+			<button type='button' className={`dropdown-item ${className}`} {...props}>
+				{children}
+			</button>
 		</li>
 	);
 };
 
-export const Dropdown: FC<DropdownCommonProps> = ({ title, children, ...props }) => {
+export const Dropdown: FC<DropdownProps> = ({
+	className = "",
+	title,
+	menuPosition = "",
+	children,
+	...props
+}) => {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const dropdownRef = useRef<HTMLDivElement>(null);
 
 	const toggleDropdown = () => setIsOpen(!isOpen);
+	const closeDropdown = () => setIsOpen(false);
+
+	useEffect(() => {
+		const handleClickOutside = (event: MouseEvent) => {
+			if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+				closeDropdown();
+			}
+		};
+
+		if (isOpen) {
+			document.addEventListener("mousedown", handleClickOutside);
+		}
+		return () => {
+			document.removeEventListener("mousedown", handleClickOutside);
+		};
+	}, [isOpen]);
 
 	useEffect(() => {
 		if (isOpen && dropdownRef.current) {
@@ -50,7 +75,7 @@ export const Dropdown: FC<DropdownCommonProps> = ({ title, children, ...props })
 	}, [isOpen]);
 
 	return (
-		<div ref={dropdownRef} className='dropdown' {...props}>
+		<div ref={dropdownRef} className={`dropdown ${className}`} {...props}>
 			<Button
 				className='btn-secondary dropdown-toggle mb-1'
 				type='button'
@@ -58,7 +83,9 @@ export const Dropdown: FC<DropdownCommonProps> = ({ title, children, ...props })
 				aria-expanded={isOpen}>
 				{title}
 			</Button>
-			{isOpen && <ul className='dropdown-menu show'>{children}</ul>}
+			<ul className={`dropdown-menu user-select-none ${isOpen ? "show" : "hide"} ${menuPosition}`}>
+				{children}
+			</ul>
 		</div>
 	);
 };

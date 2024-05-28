@@ -93,7 +93,7 @@ const SignIn = () => {
 								{...getValidationObj(validationObj?.[PASSWORD], false)}
 							/>
 							<div className='mt-3 d-flex justify-content-center'>
-								<Button className='w-50 bg-primary' type='submit' disabled={isLoading}>
+								<Button className='w-50 btn-primary' type='submit' disabled={isLoading}>
 									Sign In
 								</Button>
 							</div>

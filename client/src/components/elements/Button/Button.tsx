@@ -4,7 +4,7 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
 const Button: FC<ButtonProps> = ({ children, type = "button", className = "", ...props }) => {
 	return (
-		<button type={type} className={`btn p-1 ${className}`} {...props}>
+		<button type={type} className={`btn ${className}`} {...props}>
 			{children}
 		</button>
 	);

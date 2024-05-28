@@ -29,9 +29,7 @@ const Input: React.ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
 			{label && <div className='form-label'>{label}</div>}
 			<input
 				ref={ref}
-				className={`form-control px-3 py-1 border-1 border-gray rounded-start-pill rounded-end-pill ${
-					showValidationFeedback && validClass()
-				} ${className}`}
+				className={`form-control ${showValidationFeedback && validClass()} ${className}`}
 				autoComplete={autoComplete}
 				{...props}
 			/>

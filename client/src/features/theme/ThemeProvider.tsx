@@ -17,7 +17,9 @@ export const ThemeProvider: FC<themeTypeProps> = ({ children }) => {
 
 	const handleThemeChange = useCallback(
 		(e: MediaQueryListEvent) => {
-			if (storedTheme === "system") setTheme(e.matches ? "dark" : "light");
+			if (storedTheme === "system") {
+				setTheme(e.matches ? "dark" : "light");
+			}
 		},
 		[storedTheme, setTheme],
 	);
