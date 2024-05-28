@@ -1,8 +1,7 @@
 # TopBrainFrame
-This project is a cloud-based project management application built with React, Express, and MySQL.
+The TopBrainFrame project is a web application that helps you set life goals and supports you in planning and learning to achieve them.
 
-
-## <span style="color: tomato;">How to Run the Project</span>
+## How to Run the Project
 Follow these steps to set up and run the project:
 
   ### *1. Install MySQL*
