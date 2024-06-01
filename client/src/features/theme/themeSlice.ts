@@ -1,11 +1,16 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-interface themeState {
+interface ThemeState {
+	isMobileMode: boolean;
+	isMinimizeMode: boolean;
 	isAsideOpen: boolean;
 	isDarkTheme: boolean;
+	asideWidth?: number;
 }
 
-const themeInitState: themeState = {
+const themeInitState: ThemeState = {
+	isMobileMode: false,
+	isMinimizeMode: false,
 	isAsideOpen: true,
 	isDarkTheme: false,
 };
@@ -14,7 +19,16 @@ export const themeSlice = createSlice({
 	name: "theme",
 	initialState: themeInitState,
 	reducers: {
-		setIsAsideOpen: (state, action: PayloadAction<boolean>) => {
+		setMobileMode: (state, action: PayloadAction<ThemeState["isMobileMode"]>) => {
+			state.isMobileMode = action.payload;
+		},
+		setMinimizeMode: (state, action: PayloadAction<ThemeState["isMinimizeMode"]>) => {
+			state.isMinimizeMode = action.payload;
+		},
+		setAsideWidth: (state, action: PayloadAction<ThemeState["asideWidth"]>) => {
+			state.asideWidth = action.payload;
+		},
+		setAsideOpen: (state, action: PayloadAction<ThemeState["isAsideOpen"]>) => {
 			state.isAsideOpen = action.payload;
 		},
 		setIsDarkTheme: (state, action: PayloadAction<boolean>) => {
@@ -23,4 +37,5 @@ export const themeSlice = createSlice({
 	},
 });
 
-export const { setIsAsideOpen, setIsDarkTheme } = themeSlice.actions;
+export const { setMobileMode, setMinimizeMode, setAsideWidth, setAsideOpen, setIsDarkTheme } =
+	themeSlice.actions;

@@ -3,8 +3,5 @@
 	flex-direction: column;
 	flex-grow: 1;
 	min-height: 100vh;
-
-	.aside ~ & {
-		margin-left: map-get($map: $aside, $key: width);
-	}
+	transition: margin 500ms ease-in-out;
 }

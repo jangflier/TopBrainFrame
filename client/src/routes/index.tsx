@@ -5,12 +5,12 @@ import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { useEffect } from "react";
 import { setUserInfo } from "../features/user/userSlice";
 import { authMenu } from "../menu";
-import { Aside } from "../components/layout/Aside";
 import { PageWrapper } from "../components/layout/PageWrapper";
 import { ContentRoutes } from "./routesComponent/ContentRoutes";
 import { FooterRoutes } from "./routesComponent/FooterRoutes";
 import { HeaderRoutes } from "./routesComponent/HeaderRoutes";
 import { useUserInfoMutation } from "../features/user/userApi";
+import { AsideRoutes } from "./routesComponent/AsideRoutes";
 
 const AppRoutes = () => {
 	const userInfo = useAppSelector((state: RootState) => state.userInfo);
@@ -42,9 +42,7 @@ const AppRoutes = () => {
 				<></>
 			) : userInfo.isSignedIn ? (
 				<>
-					<Routes>
-						<Route path='*' element={<Aside />} />
-					</Routes>
+					<AsideRoutes />
 					<PageWrapper>
 						<HeaderRoutes />
 						<ContentRoutes />

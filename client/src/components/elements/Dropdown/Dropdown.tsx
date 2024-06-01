@@ -77,13 +77,13 @@ export const Dropdown: FC<DropdownProps> = ({
 	return (
 		<div ref={dropdownRef} className={`dropdown ${className}`} {...props}>
 			<Button
-				className='btn-secondary dropdown-toggle mb-1'
+				className='btn-secondary dropdown-toggle'
 				type='button'
 				onClick={toggleDropdown}
 				aria-expanded={isOpen}>
 				{title}
 			</Button>
-			<ul className={`dropdown-menu user-select-none ${isOpen ? "show" : "hide"} ${menuPosition}`}>
+			<ul className={`dropdown-menu user-select-none mt-1 ${isOpen ? "show" : "hide"} ${menuPosition}`}>
 				{children}
 			</ul>
 		</div>
