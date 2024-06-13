@@ -12,7 +12,7 @@
 }
 
 .toast-enter {
-	animation: slideInLeft var(--toast-transition-delay) ease-in-out forwards;
+	animation: slideInLeft var(--toast-transition-delay) cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 @keyframes slideOutRight {
@@ -25,7 +25,7 @@
 }
 
 .toast-exit {
-	animation: slideOutRight var(--toast-transition-delay) ease-in-out forwards;
+	animation: slideOutRight var(--toast-transition-delay) cubic-bezier(0.95, 0.05, 0.795, 0.035);
 }
 
 .toast-move {
