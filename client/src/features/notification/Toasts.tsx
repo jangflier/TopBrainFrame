@@ -21,13 +21,16 @@ import {
 	ToastWrapperType,
 	ToastsRefHandle,
 } from "./ToastsTypes";
+import { Icon } from "../../components/elements/Icon/Icon";
 
 const ToastHeader: FC<ToastHeaderType & { onClose: Function }> = (props) => {
 	return (
-		<div className='toast-header' {...props.option}>
-			{/* <img src='...' className='rounded me-2' alt='...' /> */}
+		<div className='toast-header'>
+			{props.option.icon && props.option.iconColor && (
+				<Icon icon={props.option.icon} color={props.option.iconColor} />
+			)}
 			<strong className='me-auto'>{props.content}</strong>
-			{props.option?.time && <small>{props.option?.time.toDateString()}</small>}
+			{props.option.time && <small>{props.option.time.toDateString()}</small>}
 			<button
 				type='button'
 				className='btn-close'
@@ -75,7 +78,7 @@ export const Toast: FC<ToastWrapperType> = ({
 	return (
 		<div
 			id='toast'
-			className={`toast show border rounded-4 ${animation} ${className}`}
+			className={`toast show ${animation} ${className}`}
 			role='alert'
 			aria-live='assertive'
 			aria-atomic='true'
@@ -136,6 +139,7 @@ export const Toasts = forwardRef<ToastsRefHandle, ToastSettingsType>((props, ref
 			<ToastContainer>
 				{toasts.map((toast) => {
 					let progRef = progressRefs.current[toast.id] || createRef<ProgressRefHandle>();
+
 					return (
 						<Toast
 							key={toast.id}

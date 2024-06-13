@@ -18,6 +18,10 @@ body {
 	height: 100vh;
 }
 
+.cursor-pointer {
+	cursor: pointer;
+}
+
 @mixin backdrop-effect($amount: 5px) {
 	backdrop-filter: blur($amount);
 }
@@ -53,11 +57,6 @@ body {
 	&.show {
 		opacity: 1;
 	}
-}
-
-.neon-effect {
-	box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #bc13fe, 0 0 0.8rem #bc13fe,
-		0 0 2.8rem #bc13fe, inset 0 0 1.3rem #bc13fe;
 }
 
 $border-radius: 1rem;

@@ -9,5 +9,5 @@ export const CloseAsideButton = () => {
 		dispatch(setAsideOpen(false));
 	};
 
-	return <Button onClick={closeAside}>close</Button>;
+	return <Button icon='x' className='p-0 fs-4' onClick={closeAside}></Button>;
 };

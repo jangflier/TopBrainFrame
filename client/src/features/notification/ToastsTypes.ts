@@ -14,7 +14,7 @@ type BootstrapIcon = string;
 
 export interface ToastHeaderType {
 	content: ReactNode;
-	option?: HTMLAttributes<HTMLElement> & {
+	option: {
 		icon?: BootstrapIcon;
 		iconColor?: BootstrapColor;
 		time?: Date;
@@ -45,3 +45,5 @@ export interface ToastsRefHandle {
 	add: (ToastProps: ToastPropsWithId) => void;
 	remove: (id: ToastIdType) => void;
 }
+
+export type AlertTypes = Extract<BootstrapColor, "success" | "danger" | "warning" | "info">;

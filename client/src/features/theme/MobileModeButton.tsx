@@ -12,5 +12,10 @@ export const MobileModeButton: FC = () => {
 		dispatch(setMobileMode(!isMobileMode));
 	};
 
-	return <Button onClick={toggleMobileMode}>Mobile</Button>;
+	return (
+		<Button
+			icon={isMobileMode ? "pc-display-horizontal" : "phone-fill"}
+			className='p-0 fs-4'
+			onClick={toggleMobileMode}></Button>
+	);
 };

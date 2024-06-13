@@ -1,28 +1,36 @@
-import { FC, HTMLAttributes, useEffect, useRef, useState } from "react";
+import { FC, HTMLAttributes, ReactNode, useEffect, useRef, useState } from "react";
 import Button from "../Button/Button";
+import { IconTypes } from "../Icon/Icon";
 
 type DropdownCommonProps = HTMLAttributes<HTMLElement>;
 
 export interface DropdownProps extends DropdownCommonProps {
-	title: string;
+	buttonTitle: ReactNode;
 	menuPosition: string;
 }
 
-export interface DropdownItemProps extends DropdownCommonProps {}
+export interface DropdownItemProps extends DropdownCommonProps {
+	icon?: IconTypes["icon"];
+}
 
-export const DropdownItem: FC<DropdownItemProps> = ({ className = "", children, ...props }) => {
+export const DropdownItem: FC<DropdownItemProps> = ({
+	className = "",
+	children,
+	icon,
+	...props
+}) => {
 	return (
 		<li>
-			<button type='button' className={`dropdown-item ${className}`} {...props}>
+			<Button icon={icon} className={`dropdown-item ${className}`} {...props}>
 				{children}
-			</button>
+			</Button>
 		</li>
 	);
 };
 
 export const Dropdown: FC<DropdownProps> = ({
 	className = "",
-	title,
+	buttonTitle,
 	menuPosition = "",
 	children,
 	...props
@@ -81,9 +89,12 @@ export const Dropdown: FC<DropdownProps> = ({
 				type='button'
 				onClick={toggleDropdown}
 				aria-expanded={isOpen}>
-				{title}
+				{buttonTitle}
 			</Button>
-			<ul className={`dropdown-menu user-select-none mt-1 ${isOpen ? "show" : "hide"} ${menuPosition}`}>
+			<ul
+				className={`dropdown-menu user-select-none mt-1 ${
+					isOpen ? "show" : "hide"
+				} ${menuPosition}`}>
 				{children}
 			</ul>
 		</div>

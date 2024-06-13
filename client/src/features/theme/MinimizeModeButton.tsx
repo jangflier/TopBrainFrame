@@ -11,5 +11,10 @@ export const MinimizeModeButton = () => {
 		dispatch(setMinimizeMode(!isMinimizeMode));
 	};
 
-	return <Button onClick={toggleMinimize}>Minimize</Button>;
+	return (
+		<Button
+			icon={isMinimizeMode ? "indent" : "unindent"}
+			className='p-0 fs-4'
+			onClick={toggleMinimize}></Button>
+	);
 };
